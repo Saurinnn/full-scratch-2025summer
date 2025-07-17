@@ -8,7 +8,7 @@
 }
 
 /* 要素はみだしチェック */
-* {  outline: 1px solid rgba(0, 0, 0, 0.2); }
+/** {  outline: 1px solid rgba(0, 0, 0, 0.2); }*/
 
 
 html, body {
@@ -94,6 +94,10 @@ nav ul li a {
 nav ul li a:hover {
   color: #4682b4; /* 濃い水色 */
 }
+
+.btn-trigger{
+  display: none; 
+} 
 
 /* カバーセクション */
 .cover {
@@ -315,8 +319,12 @@ footer {
     top: 80px;
     left: 280px;
    }
+
+   .fade-section{
+    /*width: 380px;*/
+    transform: translateX(-20px);
 }
-  
+}  
 
 
 @media screen and (max-width: 540px) {
@@ -336,17 +344,69 @@ footer {
     width:150px;
     height: 50px;
   }
+
+  .btn-trigger{
+    display: block !important; /* モバイルでは表示 */
+  } 
+
+  /*=============================
+.btn-trigger
+=============================*/
+.btn-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+  cursor: pointer;
+}
+.btn-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+.btn-trigger, .btn-trigger span {
+  display: inline-block;
+  transition: all .5s;
+  box-sizing: border-box;
+}
+.btn-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.btn-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.btn-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+
+
+  /*=============================
+#btn02
+=============================*/
+#btn02.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(45deg);
+  transform: translateY(20px) rotate(45deg);
+}
+#btn02.active span:nth-of-type(2) {
+  opacity: 0;
+}
+#btn02.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(-45deg);
+  transform: translateY(-20px) rotate(-45deg);
+}
   
   .con-num{
     font-size: 80px;
-    top: 80px;
-    left: 100px;
+    top: 30px;
+    left: 20px;
    }
   
    .content{
     background-color: #87ceeb;
     margin-bottom: 20px;
-    width: 80%;
+    width: 100%;
     min-height: 200px;
     transform: skewX(0deg);
     filter: drop-shadow(0 5px 5px rgba(0, 0, 255, 0.5));
@@ -375,7 +435,17 @@ footer {
   }
 
   .fade-section{
-    width: 380px;
+    width: 100%;
+    transform: translateX(0px);
+
   }
+
+  .whole-content{
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+
+
 
 }
