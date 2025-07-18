@@ -37,4 +37,22 @@ window.addEventListener("DOMContentLoaded", () => {
             gallery.scrollBy({ left: 150, behavior: "smooth" });
         });
     }
+    const galleryItems = document.querySelectorAll(".gallery-item img");
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.getElementById("closeModal");
+    galleryItems.forEach((img) => {
+        img.addEventListener("click", () => {
+            if (modal && modalImg) {
+                modal.classList.remove("hidden");
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+            }
+        });
+    });
+    closeBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+        modalImg.src = "";
+        modalImg.alt = "";
+    });
 });
