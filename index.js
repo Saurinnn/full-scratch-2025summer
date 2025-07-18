@@ -1,16 +1,27 @@
 "use strict";
 window.addEventListener("DOMContentLoaded", () => {
+    const btnTriggers = document.querySelectorAll('.btn-trigger');
+    const spNav = document.querySelector('.sp-nav');
+    btnTriggers.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+            const target = event.currentTarget;
+            target.classList.toggle('active');
+            if (spNav) {
+                spNav.classList.toggle('slide-in');
+            }
+            event.preventDefault();
+        });
+    });
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("fade-in");
-                obs.unobserve(entry.target); // 一度だけ発火
+                obs.unobserve(entry.target);
             }
         });
     }, {
         threshold: 0.1,
     });
-    // 共通クラスで一括取得＆監視
     const fadeSections = document.querySelectorAll(".fade-section");
     fadeSections.forEach((el) => {
         observer.observe(el);
