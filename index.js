@@ -21,14 +21,14 @@ window.addEventListener("DOMContentLoaded", () => {
             loading.style.display = "none";
         }
     }, 2100 + 3000); // 合計5.1秒後に完全非表示
-    const btnTriggers = document.querySelectorAll('.btn-trigger');
-    const spNav = document.querySelector('.sp-nav');
+    const btnTriggers = document.querySelectorAll(".btn-trigger");
+    const spNav = document.querySelector(".sp-nav");
     btnTriggers.forEach((btn) => {
-        btn.addEventListener('click', (event) => {
+        btn.addEventListener("click", (event) => {
             const target = event.currentTarget;
-            target.classList.toggle('active');
+            target.classList.toggle("active");
             if (spNav) {
-                spNav.classList.toggle('slide-in');
+                spNav.classList.toggle("slide-in");
             }
             event.preventDefault();
         });
@@ -76,4 +76,19 @@ window.addEventListener("DOMContentLoaded", () => {
         modalImg.src = "";
         modalImg.alt = "";
     });
+    const track = document.querySelector(".film-track");
+    const topHoles = document.querySelector(".film-holes.top");
+    const bottomHoles = document.querySelector(".film-holes.bottom");
+    if (track && topHoles && bottomHoles) {
+        const trackWidth = track.scrollWidth;
+        const holeWidth = 20;
+        const gap = 10;
+        const total = Math.floor(trackWidth / (holeWidth + gap));
+        for (let i = 0; i < total; i++) {
+            const holeTop = document.createElement("div");
+            const holeBottom = document.createElement("div");
+            topHoles.appendChild(holeTop);
+            bottomHoles.appendChild(holeBottom);
+        }
+    }
 });
