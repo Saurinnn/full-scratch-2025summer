@@ -90,5 +90,34 @@ window.addEventListener("DOMContentLoaded", () => {
             topHoles.appendChild(holeTop);
             bottomHoles.appendChild(holeBottom);
         }
+        // 自動スクロール実装
+        let scrollSpeed = 1; // スクロール速度（ピクセル/フレーム）
+        let animationFrameId;
+        // 無限スクロールのために内容を複製
+        const clone = track.innerHTML;
+        track.innerHTML += clone;
+        const scroll = () => {
+            if (track.scrollLeft >= track.scrollWidth / 2) {
+                // 最初の位置に戻す（スムーズに見せるためscroll-behaviorを一時的に解除）
+                track.style.scrollBehavior = "auto";
+                track.scrollLeft = 0;
+                track.style.scrollBehavior = "smooth";
+            }
+            else {
+                track.scrollLeft += scrollSpeed;
+            }
+            animationFrameId = requestAnimationFrame(scroll);
+        };
+        // スクロール開始
+        scroll();
+        // ウィンドウが非アクティブの時にパフォーマンスを節約
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            else {
+                scroll();
+            }
+        });
     }
 });

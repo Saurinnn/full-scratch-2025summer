@@ -430,6 +430,22 @@ main p {
   flex-shrink: 0;
 }
 
+.film-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.film {
+  display: flex;
+  flex-shrink: 0;
+  will-change: transform;
+}
+.film-track {
+  display: flex;
+}
+
+
 /* フッター */
 footer {
   text-align: center;
