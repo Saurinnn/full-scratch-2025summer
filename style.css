@@ -445,7 +445,6 @@ main p {
   display: flex;
 }
 
-
 /* フッター */
 footer {
   text-align: center;
@@ -640,6 +639,8 @@ footer {
   }
   
 
-
+  .film-item {
+    width: 35%;
+  }
 
 }

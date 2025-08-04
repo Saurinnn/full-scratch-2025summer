@@ -90,34 +90,39 @@ window.addEventListener("DOMContentLoaded", () => {
             topHoles.appendChild(holeTop);
             bottomHoles.appendChild(holeBottom);
         }
-        // 自動スクロール実装
-        let scrollSpeed = 1; // スクロール速度（ピクセル/フレーム）
-        let animationFrameId;
         // 無限スクロールのために内容を複製
-        const clone = track.innerHTML;
-        track.innerHTML += clone;
-        const scroll = () => {
-            if (track.scrollLeft >= track.scrollWidth / 2) {
-                // 最初の位置に戻す（スムーズに見せるためscroll-behaviorを一時的に解除）
-                track.style.scrollBehavior = "auto";
-                track.scrollLeft = 0;
-                track.style.scrollBehavior = "smooth";
-            }
-            else {
-                track.scrollLeft += scrollSpeed;
-            }
-            animationFrameId = requestAnimationFrame(scroll);
+        track.innerHTML += track.innerHTML;
+        topHoles.innerHTML += topHoles.innerHTML;
+        bottomHoles.innerHTML += bottomHoles.innerHTML;
+        // 共通スクロール関数
+        const startInfiniteScroll = (element, speed) => {
+            let animationFrameId;
+            const scroll = () => {
+                if (element.scrollLeft >= element.scrollWidth / 2) {
+                    element.style.scrollBehavior = "auto";
+                    element.scrollLeft = 0;
+                    element.style.scrollBehavior = "smooth";
+                }
+                else {
+                    element.scrollLeft += speed;
+                }
+                animationFrameId = requestAnimationFrame(scroll);
+            };
+            scroll(); // スクロール開始
+            // タブ非表示時に停止、表示時に再開
+            document.addEventListener("visibilitychange", () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                else {
+                    scroll();
+                }
+            });
+            return () => cancelAnimationFrame(animationFrameId); // 停止関数を返す（必要なら）
         };
-        // スクロール開始
-        scroll();
-        // ウィンドウが非アクティブの時にパフォーマンスを節約
-        document.addEventListener("visibilitychange", () => {
-            if (document.hidden) {
-                cancelAnimationFrame(animationFrameId);
-            }
-            else {
-                scroll();
-            }
-        });
+        // 各要素でスクロール開始
+        startInfiniteScroll(track, 2);
+        startInfiniteScroll(topHoles, 1);
+        startInfiniteScroll(bottomHoles, 1);
     }
 });
