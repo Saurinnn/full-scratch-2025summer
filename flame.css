@@ -1,0 +1,74 @@
+/* --- CSSリセット（モダン）--- */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html, body {
+height: 100%;
+font-family: sans-serif;
+}
+
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+height: auto;
+}
+
+input, button, textarea, select {
+font: inherit;
+border: none;
+background: none;
+outline: none;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+ul, ol {
+list-style: none;
+}
+
+h1{
+font-size: 48px;
+color: #ffffff;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.bg01 {
+  background-image: url('img/cover.jpg');
+  opacity: 1; /* 最初は表示 */
+}
+
+.bg02 {
+  background-image: url('img/beach-tree.jpg');
+}
+
+/* コンテンツの高さ */
+.flame01,
+.flame03 {
+  height: 800px;
+}
+
+.flame02 {
+  height: 300px;
+  background-color: #87ceeb;
+}

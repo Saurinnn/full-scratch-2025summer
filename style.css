@@ -430,12 +430,6 @@ main p {
   flex-shrink: 0;
 }
 
-.film-wrapper {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
 .film {
   display: flex;
   flex-shrink: 0;

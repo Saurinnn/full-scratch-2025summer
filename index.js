@@ -121,7 +121,7 @@ window.addEventListener("DOMContentLoaded", () => {
             return () => cancelAnimationFrame(animationFrameId); // 停止関数を返す（必要なら）
         };
         // 各要素でスクロール開始
-        startInfiniteScroll(track, 2);
+        startInfiniteScroll(track, 1);
         startInfiniteScroll(topHoles, 1);
         startInfiniteScroll(bottomHoles, 1);
     }

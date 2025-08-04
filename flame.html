@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="flame.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="background bg01"></div>
+  <div class="background bg02"></div>
+
+  <div class="flame01">
+    <h1>最初の背景</h1>
+  </div>
+  <div class="flame02">
+    <h1>コンテンツ</h1>
+  </div>
+  <div class="flame03">
+    <h1>最後の背景</h1>
+  </div>
+
+  <script>
+    const bg01 = document.querySelector('.bg01');
+    const bg02 = document.querySelector('.bg02');
+    const flame03 = document.querySelector('.flame03');
+  
+    window.addEventListener('scroll', () => {
+      const rect = flame03.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+  
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        // flame03 が画面に表示されている
+        bg01.style.opacity = '0';
+        bg02.style.opacity = '1';
+      } else {
+        // flame03 が画面外にある
+        bg01.style.opacity = '1';
+        bg02.style.opacity = '0';
+      }
+    });
+  </script>
+</body>
+</html>
