@@ -415,6 +415,8 @@ main p {
   overflow-x: scroll; /* 横スクロールを有効にする */
   -webkit-overflow-scrolling: touch; /* iOSでのスムーズスクロール */
   white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .film-holes.top {
@@ -436,12 +438,6 @@ main p {
   display: flex;
   flex-shrink: 0;
   will-change: transform;
-}
-.film-track {
-  display: flex;
-  white-space: nowrap; /* 改行させない */
-  overflow-x: scroll; /* 横スクロールを有効にする */
-  -webkit-overflow-scrolling: touch; /* iOSでのスムーズスクロール */
 }
 
 /* フッター */
