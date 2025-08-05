@@ -383,7 +383,7 @@ main p {
 .film-track {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
+  overflow-x: scroll;
   scroll-behavior: smooth;
   padding: 0;
   scrollbar-width: none;
