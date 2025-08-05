@@ -450,59 +450,11 @@ footer {
 
 /*レスポンシブ対応*/
 @media screen and (max-width: 900px) {
-  .loading-text{
-    font-size: 24px;
-  }
-
-  .detail{
-    display: block;
-  }
-
-  .detail p{
-    margin: 10px 10px;
-  }
-
-  .con01{
-    left: 20px;                     
-  }
-  .con02{
-    left: 20px;                      
-  }
-  .con03{
-    left: 20px;                      
-  }
-  .con04{
-    left: 20px;                      
-  }
-  
-  .con-num{
-    top: 80px;
-    left: 280px;
-   }
-
-   .fade-section{
-    /*width: 380px;*/
-    transform: translateX(-20px);
-}
-}  
-
-
-@media screen and (max-width: 540px) {
   .pc-nav{
     display: none; 
   }
-
-  header {
-    height: auto; 
-  }
-
-  nav {
-    height: auto;
-  }
-
-  .logo{
-    width:150px;
-    height: 50px;
+  .loading-text{
+    font-size: 24px;
   }
 
   .btn-trigger{
@@ -565,7 +517,7 @@ footer {
 .sp-nav{
   position: fixed;
   background-color: rgba(255, 255, 255, 0.7);
-  margin-top: 50px;
+  margin-top: 100px;
   width: 100%;
   height: 300px;
   display: block; 
@@ -580,8 +532,69 @@ footer {
 }
 
 .cover{
-  padding: 100px 0 50px 0;
+  padding: 100px 0 100px 0;
 }
+
+
+
+
+
+  .detail{
+    display: block;
+  }
+
+  .detail p{
+    margin: 10px 10px;
+  }
+
+  .con01{
+    left: 20px;                     
+  }
+  .con02{
+    left: 20px;                      
+  }
+  .con03{
+    left: 20px;                      
+  }
+  .con04{
+    left: 20px;                      
+  }
+  
+  .con-num{
+    top: 80px;
+    left: 280px;
+   }
+
+   .fade-section{
+    /*width: 380px;*/
+    transform: translateX(-20px);
+}
+}  
+
+
+@media screen and (max-width: 540px) {
+
+  header {
+    height: auto; 
+  }
+
+  nav {
+    height: auto;
+  }
+
+  .logo{
+    width:150px;
+    height: 50px;
+  }
+
+  .sp-nav{
+    margin-top: 50px;
+  }
+
+  .cover{
+    padding: 100px 0 50px 0;
+  }
+  
 
 /*プラン*/
   .con-num{
