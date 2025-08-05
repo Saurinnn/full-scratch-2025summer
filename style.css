@@ -412,7 +412,9 @@ main p {
   padding: 0;
   pointer-events: none;
   z-index: 2;
-  overflow: hidden;
+  overflow-x: scroll; /* 横スクロールを有効にする */
+  -webkit-overflow-scrolling: touch; /* iOSでのスムーズスクロール */
+  white-space: nowrap;
 }
 
 .film-holes.top {
@@ -437,6 +439,9 @@ main p {
 }
 .film-track {
   display: flex;
+  white-space: nowrap; /* 改行させない */
+  overflow-x: scroll; /* 横スクロールを有効にする */
+  -webkit-overflow-scrolling: touch; /* iOSでのスムーズスクロール */
 }
 
 /* フッター */
