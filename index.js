@@ -122,7 +122,7 @@ window.addEventListener("DOMContentLoaded", () => {
         };
         // 各要素でスクロール開始
         startInfiniteScroll(track, 1);
-        startInfiniteScroll(topHoles, 1);
-        startInfiniteScroll(bottomHoles, 1);
+        //startInfiniteScroll(topHoles, 1);
+        //startInfiniteScroll(bottomHoles, 1);
     }
 });
