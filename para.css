@@ -1,0 +1,74 @@
+/* --- CSSリセット（モダン）--- */
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html, body {
+height: 100%;
+font-family: sans-serif;
+}
+
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+height: auto;
+}
+
+input, button, textarea, select {
+font: inherit;
+border: none;
+background: none;
+outline: none;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+ul, ol {
+list-style: none;
+}
+
+.wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative; /* 絶対配置の基準にする */
+}
+
+/* 固定背景パララックス */
+.parallax-bg-1 {
+  background-image: url('img/cover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* ←ここで固定表示 */
+  position: absolute; /* wrap の中で配置 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.parallax-bg-2 {
+  background-image: url('img/beach-tree.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* ←ここで固定表示 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 背景の上に載る内容 */
+.content {
+  background-color: #fff;
+  position: relative; /* 背景より上にする */
+  z-index: 1;
+  padding: 50px;
+}
