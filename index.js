@@ -92,17 +92,17 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         // 無限スクロールのために内容を複製
         track.innerHTML += track.innerHTML;
-        topHoles.innerHTML += topHoles.innerHTML;
-        bottomHoles.innerHTML += bottomHoles.innerHTML;
         // 共通スクロール関数
         const startInfiniteScroll = (element, speed) => {
             let animationFrameId;
             const scroll = () => {
                 if (element.scrollLeft >= element.scrollWidth / 2) {
+                    element.style.scrollBehavior = "auto";
                     element.scrollLeft = 0;
+                    element.style.scrollBehavior = "smooth";
                 }
                 else {
-                    element.scrollBy({ left: speed, behavior: 'auto' });
+                    element.scrollLeft += speed;
                 }
                 animationFrameId = requestAnimationFrame(scroll);
             };
