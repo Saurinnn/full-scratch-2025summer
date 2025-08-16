@@ -79,7 +79,6 @@ body {
 
 .sub-content{
   height: 800px;
-  width: 100vh;
 }
 
 
@@ -467,7 +466,6 @@ footer {
   padding: 10px 0;
   background-color: #87ceeb; /* 水色 */
   color: white;
-  margin-top: 20px;
 }
 
 /*レスポンシブ対応*/
