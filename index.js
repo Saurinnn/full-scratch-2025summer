@@ -99,12 +99,10 @@ window.addEventListener("DOMContentLoaded", () => {
             let animationFrameId;
             const scroll = () => {
                 if (element.scrollLeft >= element.scrollWidth / 2) {
-                    element.style.scrollBehavior = "auto";
                     element.scrollLeft = 0;
-                    element.style.scrollBehavior = "smooth";
                 }
                 else {
-                    element.scrollLeft += speed;
+                    element.scrollBy({ left: speed, behavior: 'auto' });
                 }
                 animationFrameId = requestAnimationFrame(scroll);
             };
