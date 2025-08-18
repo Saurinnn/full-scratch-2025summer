@@ -67,7 +67,7 @@ body {
 }
 
 .background2{
-  background-image: url('img/beach01.jpg');
+  background-image: url('img/beach04.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* ←ここで固定表示 */
