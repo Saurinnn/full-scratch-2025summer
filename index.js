@@ -90,24 +90,28 @@ window.addEventListener("DOMContentLoaded", () => {
             topHoles.appendChild(holeTop);
             bottomHoles.appendChild(holeBottom);
         }
-        // 無限スクロールのために内容を複製
+        // 無限スクロールのために内容を複製（最初の1回だけ）
         track.innerHTML += track.innerHTML;
-        // 共通スクロール関数
-        const startInfiniteScroll = (element, speed) => {
+        topHoles.innerHTML += topHoles.innerHTML;
+        bottomHoles.innerHTML += bottomHoles.innerHTML;
+        // 3つをまとめてスクロールさせる関数
+        const scrollTogether = (elements, speed) => {
             let animationFrameId;
             const scroll = () => {
-                if (element.scrollLeft >= element.scrollWidth / 2) {
-                    element.style.scrollBehavior = "auto";
-                    element.scrollLeft = 0;
-                    element.style.scrollBehavior = "smooth";
-                }
-                else {
-                    element.scrollLeft += speed;
-                }
+                elements.forEach((element) => {
+                    if (element.scrollLeft >= element.scrollWidth / 2) {
+                        element.style.scrollBehavior = "auto"; // ジャンプするときは一瞬で戻す
+                        element.scrollLeft = 0;
+                        element.style.scrollBehavior = "smooth"; // 普段は滑らかに
+                    }
+                    else {
+                        element.scrollLeft += speed;
+                    }
+                });
                 animationFrameId = requestAnimationFrame(scroll);
             };
-            scroll(); // スクロール開始
-            // タブ非表示時に停止、表示時に再開
+            scroll();
+            // タブが非表示になったら停止、戻ったら再開
             document.addEventListener("visibilitychange", () => {
                 if (document.hidden) {
                     cancelAnimationFrame(animationFrameId);
@@ -116,11 +120,8 @@ window.addEventListener("DOMContentLoaded", () => {
                     scroll();
                 }
             });
-            return () => cancelAnimationFrame(animationFrameId); // 停止関数を返す（必要なら）
         };
-        // 各要素でスクロール開始
-        startInfiniteScroll(track, 1);
-        //startInfiniteScroll(topHoles, 1);
-        //startInfiniteScroll(bottomHoles, 1);
+        // 実行（3つを同期スクロール）
+        scrollTogether([track, topHoles, bottomHoles], 1);
     }
 });
