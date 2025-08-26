@@ -110,7 +110,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 });
                 animationFrameId = requestAnimationFrame(scroll);
             };
-            scroll();
+            //scroll();
+            // requestAnimationFrame を使うとアニメーションがスムーズになる
+            function smoothScroll() {
+                scroll();
+                requestAnimationFrame(smoothScroll);
+            }
+            // 開始
+            requestAnimationFrame(smoothScroll);
             // タブが非表示になったら停止、戻ったら再開
             document.addEventListener("visibilitychange", () => {
                 if (document.hidden) {
@@ -122,6 +129,6 @@ window.addEventListener("DOMContentLoaded", () => {
             });
         };
         // 実行（3つを同期スクロール）
-        scrollTogether([track, topHoles, bottomHoles], 1);
+        scrollTogether([track, topHoles, bottomHoles], 2);
     }
 });
