@@ -79,11 +79,6 @@ body {
   z-index: -1;
 }
 
-.sub-content{
-  height: 800px;
-}
-
-
 /*ローディングアニメーション*/
 #loading {
   opacity: 1;
@@ -293,7 +288,8 @@ main p {
 .gallery-title {
   width: 100%;
   text-align: center;
-  color: #87ceeb; 
+  color: #87ceeb;
+  padding-top: 105px;
 }
 /* ギャラリーコンテナ */
 .gallery-container {
@@ -460,6 +456,47 @@ main p {
   will-change: transform;
 }
 
+/*エリアコンテンツ*/
+.sub-content{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 0;
+  width: 80%;
+}
+
+.leasure{
+  background-color: #fff;
+  width: 30%;
+  height: 717px;
+  border: 2px solid #4682b4;
+  border-radius: 10px;
+}
+
+.leasure img{
+  margin: 0 auto;
+  width: 300px;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.leasure h2{
+  color: #4682b4;
+  font-size: 48px;
+  margin-left: 20px; 
+  margin-bottom: 10px;
+}
+
+.leasure p{
+  margin: 0 20px;
+  font-size: 18px;
+  line-height: 1.6;
+  padding-bottom: 20px;
+}
+
+
 /* フッター */
 footer {
   text-align: center;
@@ -514,6 +551,16 @@ footer {
 }
 .btn-trigger span:nth-of-type(3) {
   bottom: 0;
+}
+
+.sub-content{
+  display: block;
+}
+
+.leasure{
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 
