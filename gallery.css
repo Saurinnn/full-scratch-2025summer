@@ -1,0 +1,62 @@
+/* ギャラリー本体（横スクロール） */
+/*ギャラリー*/
+
+.gallery-title {
+  width: 100%;
+  text-align: center;
+  color: #87ceeb;
+  padding-top: 105px;
+}
+/* ギャラリーコンテナ */
+.gallery-container {
+  position: relative;
+  background-color: #4682b4; /* 背景色指定 */
+  padding: 40px 60px; /* 左右の余白は矢印分 */
+  overflow: hidden; /* 矢印でスクロールしても外にはみ出さない */
+  margin-top: 40px;
+}
+
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* 横スクロール */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  /* スクロールバー非表示 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.gallery::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+/* ギャラリー内の画像 */
+.gallery-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 矢印ボタン共通 */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 42px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* 左矢印 */
+.arrow-left {
+  left: 10px;
+}
+
+/* 右矢印 */
+.arrow-right {
+  right: 10px;
+}

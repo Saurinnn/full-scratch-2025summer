@@ -1,4 +1,5 @@
 "use strict";
+//import InfiniteHorzScroll from "@kreonovo/infinitescroll";
 window.addEventListener("DOMContentLoaded", () => {
     const loadingText = document.querySelector(".loading-text");
     const loading = document.getElementById("loading");
@@ -50,6 +51,13 @@ window.addEventListener("DOMContentLoaded", () => {
     const gallery = document.getElementById("gallery");
     const arrowLeft = document.getElementById("arrowLeft");
     const arrowRight = document.getElementById("arrowRight");
+    /*const options = {
+      duration: 15,       // 15秒で1周
+      disableMask: true,  // マスク効果を無効化
+      direction: "right" as "right" // 右方向へスクロール
+    };
+    
+    new InfiniteHorzScroll(gallery, options);*/
     if (gallery && arrowLeft && arrowRight) {
         arrowLeft.addEventListener("click", () => {
             gallery.scrollBy({ left: -150, behavior: "smooth" });
